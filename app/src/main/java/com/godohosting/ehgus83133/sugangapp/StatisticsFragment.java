@@ -5,12 +5,16 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -84,6 +88,14 @@ public class StatisticsFragment extends Fragment {
 
     public static int totalCredit = 0;
     public static TextView credit;
+    public static TextView name;
+
+    private ArrayAdapter rankAdapter;
+    private Spinner rankSpinner;
+
+    private ListView rankListView;
+    private RankListAdapter rankListAdapter;
+    private List<Course> rankList;
 
     @Override
     public void onActivityCreated(Bundle b) {
@@ -95,6 +107,563 @@ public class StatisticsFragment extends Fragment {
         new BackgroundTask().execute();
         totalCredit = 0;
         credit = (TextView) getView().findViewById(R.id.totalCredit);
+        name = (TextView) getView().findViewById(R.id.name);
+        rankSpinner = (Spinner) getView().findViewById(R.id.rankSpinner);
+        rankAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.rank, R.layout.spinner_item);
+        rankSpinner.setAdapter(rankAdapter);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            rankSpinner.setPopupBackgroundResource(R.color.colorPrimary);
+        }
+        rankListView = (ListView) getView().findViewById(R.id.rankListView);
+        rankList = new ArrayList<Course>();
+        rankListAdapter = new RankListAdapter(getContext().getApplicationContext(), rankList, this);
+        rankListView.setAdapter(rankListAdapter);
+        rankSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (rankSpinner.getSelectedItem().equals("전체에서")){
+                    rankList.clear();
+                    new ByEntire().execute();
+                } else if (rankSpinner.getSelectedItem().equals("우리과에서")){
+                    rankList.clear();
+                    new ByMyMajor().execute();
+                } else if (rankSpinner.getSelectedItem().equals("남자 선호도")){
+                    rankList.clear();
+                    new ByMale().execute();
+                } else if (rankSpinner.getSelectedItem().equals("여자 선호도")){
+                    rankList.clear();
+                    new ByFemale().execute();
+                } else if (rankSpinner.getSelectedItem().equals("전공 인기도")){
+                    rankList.clear();
+                    new ByMajor().execute();
+                } else if (rankSpinner.getSelectedItem().equals("교양 인기도")){
+                    rankList.clear();
+                    new ByRefinement().execute();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        name.setText(MainActivity.userID + "님이 등록한");
+    }
+
+    class ByMale extends AsyncTask<Void, Void, String>
+    {
+
+        String target;
+        ProgressDialog asyncDialog = new ProgressDialog(
+                StatisticsFragment.this.getActivity());
+
+        @Override
+        protected  void onPreExecute() {
+            try {
+                asyncDialog.setIndeterminate(true);
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("강의 정보를 불러오는 중 입니다..");
+
+                // show dialog
+                asyncDialog.show();
+                target = "http://ehgus83133.godohosting.com/ByMale.php";
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = bufferedReader.readLine()) != null)
+                {
+                    stringBuilder.append(temp + "\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        public void onProgressUpdate(Void... values) {
+            super.onProgressUpdate();
+        }
+
+        @Override
+        public void onPostExecute(String result) {
+            asyncDialog.dismiss();
+            try{
+                JSONObject jsonObject = new JSONObject(result);
+                JSONArray jsonArray = jsonObject.getJSONArray("response");
+                int count = 0;
+                int courseID;
+                String courseGrade;
+                String courseTitle;
+                String courseProfessor;
+                int courseCredit;
+                int courseDivide;
+                int coursePersonnel;
+                String courseTime;
+                while(count < jsonArray.length())
+                {
+                    JSONObject object = jsonArray.getJSONObject(count);
+                    courseID = object.getInt("courseID");
+                    courseGrade = object.getString("courseGrade");
+                    courseTitle = object.getString("courseTitle");
+                    courseProfessor = object.getString("courseProfessor");
+                    courseCredit = object.getInt("courseCredit");
+                    courseDivide = object.getInt("courseDivide");
+                    coursePersonnel = object.getInt("coursePersonnel");
+                    courseTime = object.getString("courseTime");
+                    rankList.add(new Course(courseID, courseGrade, courseTitle, courseCredit, courseDivide, coursePersonnel, courseTime, courseProfessor));
+                    count++;
+                }
+                rankListAdapter.notifyDataSetChanged();
+                credit.setText(totalCredit+"학점");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    class ByFemale extends AsyncTask<Void, Void, String>
+    {
+
+        String target;
+        ProgressDialog asyncDialog = new ProgressDialog(
+                StatisticsFragment.this.getActivity());
+
+        @Override
+        protected  void onPreExecute() {
+            try {
+                asyncDialog.setIndeterminate(true);
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("강의 정보를 불러오는 중 입니다..");
+
+                // show dialog
+                asyncDialog.show();
+                target = "http://ehgus83133.godohosting.com/ByFemale.php";
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = bufferedReader.readLine()) != null)
+                {
+                    stringBuilder.append(temp + "\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        public void onProgressUpdate(Void... values) {
+            super.onProgressUpdate();
+        }
+
+        @Override
+        public void onPostExecute(String result) {
+            asyncDialog.dismiss();
+            try{
+                JSONObject jsonObject = new JSONObject(result);
+                JSONArray jsonArray = jsonObject.getJSONArray("response");
+                int count = 0;
+                int courseID;
+                String courseGrade;
+                String courseTitle;
+                String courseProfessor;
+                int courseCredit;
+                int courseDivide;
+                int coursePersonnel;
+                String courseTime;
+                while(count < jsonArray.length())
+                {
+                    JSONObject object = jsonArray.getJSONObject(count);
+                    courseID = object.getInt("courseID");
+                    courseGrade = object.getString("courseGrade");
+                    courseTitle = object.getString("courseTitle");
+                    courseProfessor = object.getString("courseProfessor");
+                    courseCredit = object.getInt("courseCredit");
+                    courseDivide = object.getInt("courseDivide");
+                    coursePersonnel = object.getInt("coursePersonnel");
+                    courseTime = object.getString("courseTime");
+                    rankList.add(new Course(courseID, courseGrade, courseTitle, courseCredit, courseDivide, coursePersonnel, courseTime, courseProfessor));
+                    count++;
+                }
+                rankListAdapter.notifyDataSetChanged();
+                credit.setText(totalCredit+"학점");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    class ByMyMajor extends AsyncTask<Void, Void, String>
+    {
+
+        String target;
+        ProgressDialog asyncDialog = new ProgressDialog(
+                StatisticsFragment.this.getActivity());
+
+        @Override
+        protected  void onPreExecute() {
+            try {
+                asyncDialog.setIndeterminate(true);
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("강의 정보를 불러오는 중 입니다..");
+
+                // show dialog
+                asyncDialog.show();
+                target = "http://ehgus83133.godohosting.com/ByMyMajor.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = bufferedReader.readLine()) != null)
+                {
+                    stringBuilder.append(temp + "\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        public void onProgressUpdate(Void... values) {
+            super.onProgressUpdate();
+        }
+
+        @Override
+        public void onPostExecute(String result) {
+            asyncDialog.dismiss();
+            try{
+                JSONObject jsonObject = new JSONObject(result);
+                JSONArray jsonArray = jsonObject.getJSONArray("response");
+                int count = 0;
+                int courseID;
+                String courseGrade;
+                String courseTitle;
+                String courseProfessor;
+                int courseCredit;
+                int courseDivide;
+                int coursePersonnel;
+                String courseTime;
+                while(count < jsonArray.length())
+                {
+                    JSONObject object = jsonArray.getJSONObject(count);
+                    courseID = object.getInt("courseID");
+                    courseGrade = object.getString("courseGrade");
+                    courseTitle = object.getString("courseTitle");
+                    courseProfessor = object.getString("courseProfessor");
+                    courseCredit = object.getInt("courseCredit");
+                    courseDivide = object.getInt("courseDivide");
+                    coursePersonnel = object.getInt("coursePersonnel");
+                    courseTime = object.getString("courseTime");
+                    rankList.add(new Course(courseID, courseGrade, courseTitle, courseCredit, courseDivide, coursePersonnel, courseTime, courseProfessor));
+                    count++;
+                }
+                rankListAdapter.notifyDataSetChanged();
+                credit.setText(totalCredit+"학점");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    class ByMajor extends AsyncTask<Void, Void, String>
+    {
+
+        String target;
+        ProgressDialog asyncDialog = new ProgressDialog(
+                StatisticsFragment.this.getActivity());
+
+        @Override
+        protected  void onPreExecute() {
+            try {
+                asyncDialog.setIndeterminate(true);
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("강의 정보를 불러오는 중 입니다..");
+
+                // show dialog
+                asyncDialog.show();
+                target = "http://ehgus83133.godohosting.com/ByMajor.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = bufferedReader.readLine()) != null)
+                {
+                    stringBuilder.append(temp + "\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        public void onProgressUpdate(Void... values) {
+            super.onProgressUpdate();
+        }
+
+        @Override
+        public void onPostExecute(String result) {
+            asyncDialog.dismiss();
+            try{
+                JSONObject jsonObject = new JSONObject(result);
+                JSONArray jsonArray = jsonObject.getJSONArray("response");
+                int count = 0;
+                int courseID;
+                String courseGrade;
+                String courseTitle;
+                String courseProfessor;
+                int courseCredit;
+                int courseDivide;
+                int coursePersonnel;
+                String courseTime;
+                while(count < jsonArray.length())
+                {
+                    JSONObject object = jsonArray.getJSONObject(count);
+                    courseID = object.getInt("courseID");
+                    courseGrade = object.getString("courseGrade");
+                    courseTitle = object.getString("courseTitle");
+                    courseProfessor = object.getString("courseProfessor");
+                    courseCredit = object.getInt("courseCredit");
+                    courseDivide = object.getInt("courseDivide");
+                    coursePersonnel = object.getInt("coursePersonnel");
+                    courseTime = object.getString("courseTime");
+                    rankList.add(new Course(courseID, courseGrade, courseTitle, courseCredit, courseDivide, coursePersonnel, courseTime, courseProfessor));
+                    count++;
+                }
+                rankListAdapter.notifyDataSetChanged();
+                credit.setText(totalCredit+"학점");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    class ByRefinement extends AsyncTask<Void, Void, String>
+    {
+
+        String target;
+        ProgressDialog asyncDialog = new ProgressDialog(
+                StatisticsFragment.this.getActivity());
+
+        @Override
+        protected  void onPreExecute() {
+            try {
+                asyncDialog.setIndeterminate(true);
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("강의 정보를 불러오는 중 입니다..");
+
+                // show dialog
+                asyncDialog.show();
+                target = "http://ehgus83133.godohosting.com/ByRefinement.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = bufferedReader.readLine()) != null)
+                {
+                    stringBuilder.append(temp + "\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        public void onProgressUpdate(Void... values) {
+            super.onProgressUpdate();
+        }
+
+        @Override
+        public void onPostExecute(String result) {
+            asyncDialog.dismiss();
+            try{
+                JSONObject jsonObject = new JSONObject(result);
+                JSONArray jsonArray = jsonObject.getJSONArray("response");
+                int count = 0;
+                int courseID;
+                String courseGrade;
+                String courseTitle;
+                String courseProfessor;
+                int courseCredit;
+                int courseDivide;
+                int coursePersonnel;
+                String courseTime;
+                while(count < jsonArray.length())
+                {
+                    JSONObject object = jsonArray.getJSONObject(count);
+                    courseID = object.getInt("courseID");
+                    courseGrade = object.getString("courseGrade");
+                    courseTitle = object.getString("courseTitle");
+                    courseProfessor = object.getString("courseProfessor");
+                    courseCredit = object.getInt("courseCredit");
+                    courseDivide = object.getInt("courseDivide");
+                    coursePersonnel = object.getInt("coursePersonnel");
+                    courseTime = object.getString("courseTime");
+                    rankList.add(new Course(courseID, courseGrade, courseTitle, courseCredit, courseDivide, coursePersonnel, courseTime, courseProfessor));
+                    count++;
+                }
+                rankListAdapter.notifyDataSetChanged();
+                credit.setText(totalCredit+"학점");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    class ByEntire extends AsyncTask<Void, Void, String>
+    {
+
+        String target;
+        ProgressDialog asyncDialog = new ProgressDialog(
+                StatisticsFragment.this.getActivity());
+
+        @Override
+        protected  void onPreExecute() {
+            try {
+                asyncDialog.setIndeterminate(true);
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("강의 정보를 불러오는 중 입니다..");
+
+                // show dialog
+                asyncDialog.show();
+                target = "http://ehgus83133.godohosting.com/ByEntire.php";
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL(target);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String temp;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((temp = bufferedReader.readLine()) != null)
+                {
+                    stringBuilder.append(temp + "\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        public void onProgressUpdate(Void... values) {
+            super.onProgressUpdate();
+        }
+
+        @Override
+        public void onPostExecute(String result) {
+            asyncDialog.dismiss();
+            try{
+                JSONObject jsonObject = new JSONObject(result);
+                JSONArray jsonArray = jsonObject.getJSONArray("response");
+                int count = 0;
+                int courseID;
+                String courseGrade;
+                String courseTitle;
+                String courseProfessor;
+                int courseCredit;
+                int courseDivide;
+                int coursePersonnel;
+                String courseTime;
+                while(count < jsonArray.length())
+                {
+                    JSONObject object = jsonArray.getJSONObject(count);
+                    courseID = object.getInt("courseID");
+                    courseGrade = object.getString("courseGrade");
+                    courseTitle = object.getString("courseTitle");
+                    courseProfessor = object.getString("courseProfessor");
+                    courseCredit = object.getInt("courseCredit");
+                    courseDivide = object.getInt("courseDivide");
+                    coursePersonnel = object.getInt("coursePersonnel");
+                    courseTime = object.getString("courseTime");
+                    rankList.add(new Course(courseID, courseGrade, courseTitle, courseCredit, courseDivide, coursePersonnel, courseTime, courseProfessor));
+                    count++;
+                }
+                rankListAdapter.notifyDataSetChanged();
+                credit.setText(totalCredit+"학점");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     class BackgroundTask extends AsyncTask<Void, Void, String>

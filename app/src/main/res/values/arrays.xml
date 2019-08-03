@@ -56,11 +56,6 @@
         <item>국제개발학과(대학원)</item>
     </string-array>
     <string-array name="year">
-        <item>2013년도</item>
-        <item>2014년도</item>
-        <item>2015년도</item>
-        <item>2016년도</item>
-        <item>2017년도</item>
         <item>2018년도</item>
         <item>2019년도</item>
         <item>2020년도</item>
@@ -80,8 +75,8 @@
         <item>대학원</item>
     </string-array>
     <string-array name="universityArea">
-        <item>교양및기타</item>
         <item>전공</item>
+        <item>교양및기타</item>
     </string-array>
     <string-array name="graduateMajor">
         <item>경영학과</item>
@@ -141,5 +136,14 @@
         <item>미디어영상제작학과</item>
         <item>연극연기학과</item>
         <item>사회체육학과</item>
+    </string-array>
+
+    <string-array name="rank">
+        <item>전체에서</item>
+        <item>우리과에서</item>
+        <item>남자 선호도</item>
+        <item>여자 선호도</item>
+        <item>전공 인기도</item>
+        <item>교양 인기도</item>
     </string-array>
 </resources>
