@@ -6,4 +6,4 @@ Registration_Helper
 <img src="./image/loading.jpg" width="33%"/> 
 <img src="./image/loading.jpg" width="33%"/> 
 <img src="./image/loading.jpg" width="33%"/>  
-* * *
+<hr/>
