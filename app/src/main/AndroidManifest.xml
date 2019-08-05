@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".LoadingActivity"
-            android:theme="@style/LoadingTheme"
+            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
 
             <intent-filter>
