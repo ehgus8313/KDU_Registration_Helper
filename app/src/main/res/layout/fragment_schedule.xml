@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text=""
                 android:layout_width="24dp"
                 android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
                 android:drawableLeft="@drawable/ic_assignment_black_24dp"
                 android:layout_gravity="center" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -35,7 +35,7 @@
                 android:textSize="17dp"
                 android:textAlignment="center"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                 android:textSize="17dp"
                 android:textAlignment="center"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                 android:textSize="17dp"
                 android:textAlignment="center"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:textSize="17dp"
                 android:textAlignment="center"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="9:30"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
@@ -98,7 +98,7 @@
                 android:paddingRight="1dp"
                 android:textSize="15dp" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="월"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -110,7 +110,7 @@
                 android:id="@+id/monday1"
                 android:padding="2dp"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -122,7 +122,7 @@
                 android:padding="2dp"
                 android:id="@+id/tuesday1"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -134,7 +134,7 @@
                 android:padding="2dp"
                 android:id="@+id/wednesday1"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -146,7 +146,7 @@
                 android:padding="2dp"
                 android:id="@+id/thursday1"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -166,7 +166,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="10:30"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
@@ -177,7 +177,7 @@
                 android:textSize="15dp"
                 android:gravity="right" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="월"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -189,7 +189,7 @@
                 android:padding="2dp"
                 android:id="@+id/monday2"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -201,7 +201,7 @@
                 android:padding="2dp"
                 android:id="@+id/tuesday2"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -213,7 +213,7 @@
                 android:padding="2dp"
                 android:id="@+id/wednesday2"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -225,7 +225,7 @@
                 android:padding="2dp"
                 android:id="@+id/thursday2"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -245,7 +245,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="11:30"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
@@ -256,7 +256,7 @@
                 android:textStyle="bold"
                 android:gravity="right" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="월"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -268,7 +268,7 @@
                 android:padding="2dp"
                 android:id="@+id/monday3"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -280,7 +280,7 @@
                 android:padding="2dp"
                 android:id="@+id/tuesday3"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -292,7 +292,7 @@
                 android:padding="2dp"
                 android:id="@+id/wednesday3"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -304,7 +304,7 @@
                 android:padding="2dp"
                 android:id="@+id/thursday3"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -324,7 +324,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="12:30"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
@@ -335,7 +335,7 @@
                 android:textSize="15dp"
                 android:gravity="right" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="월"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -347,7 +347,7 @@
                 android:padding="2dp"
                 android:id="@+id/monday4"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -359,7 +359,7 @@
                 android:padding="2dp"
                 android:id="@+id/tuesday4"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -371,7 +371,7 @@
                 android:padding="2dp"
                 android:id="@+id/wednesday4"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -383,7 +383,7 @@
                 android:padding="2dp"
                 android:id="@+id/thursday4"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -403,7 +403,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="13:30"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
@@ -414,7 +414,7 @@
                 android:textSize="15dp"
                 android:gravity="right" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="월"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -426,7 +426,7 @@
                 android:padding="2dp"
                 android:id="@+id/monday5"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -438,7 +438,7 @@
                 android:padding="2dp"
                 android:id="@+id/tuesday5"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -450,7 +450,7 @@
                 android:padding="2dp"
                 android:id="@+id/wednesday5"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -462,7 +462,7 @@
                 android:padding="2dp"
                 android:id="@+id/thursday5"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -482,7 +482,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="14:30"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
@@ -493,7 +493,7 @@
                 android:textSize="15dp"
                 android:gravity="right" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="월"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -505,7 +505,7 @@
                 android:padding="2dp"
                 android:id="@+id/monday6"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -517,7 +517,7 @@
                 android:padding="2dp"
                 android:id="@+id/tuesday6"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -529,7 +529,7 @@
                 android:padding="2dp"
                 android:id="@+id/wednesday6"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -541,7 +541,7 @@
                 android:padding="2dp"
                 android:id="@+id/thursday6"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -561,7 +561,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="15:30"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
@@ -572,7 +572,7 @@
                 android:textSize="15dp"
                 android:gravity="right" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="월"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -584,7 +584,7 @@
                 android:padding="2dp"
                 android:id="@+id/monday7"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -596,7 +596,7 @@
                 android:padding="2dp"
                 android:id="@+id/tuesday7"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -608,7 +608,7 @@
                 android:padding="2dp"
                 android:id="@+id/wednesday7"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -620,7 +620,7 @@
                 android:padding="2dp"
                 android:id="@+id/thursday7"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -640,7 +640,7 @@
             android:layout_weight="1"
             android:background="@color/colorPrimary">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="16:30"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
@@ -651,7 +651,7 @@
                 android:textSize="15dp"
                 android:gravity="right" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="월"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -663,7 +663,7 @@
                 android:padding="2dp"
                 android:id="@+id/monday8"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="화"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -675,7 +675,7 @@
                 android:padding="2dp"
                 android:id="@+id/tuesday8"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="수"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -687,7 +687,7 @@
                 android:padding="2dp"
                 android:id="@+id/wednesday8"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="목"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -699,7 +699,7 @@
                 android:padding="2dp"
                 android:id="@+id/thursday8"/>
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:text="금"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -720,7 +720,7 @@
             android:background="@color/colorPrimary"
             android:orientation="vertical">
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
@@ -731,7 +731,7 @@
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:id="@+id/monday9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -743,7 +743,7 @@
                 android:padding="2dp"
                 android:textStyle="bold" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:id="@+id/tuesday9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -755,7 +755,7 @@
                 android:padding="2dp"
                 android:textStyle="bold" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:id="@+id/wednesday9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -767,7 +767,7 @@
                 android:padding="2dp"
                 android:textStyle="bold" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:id="@+id/thursday9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -779,7 +779,7 @@
                 android:padding="2dp"
                 android:textStyle="bold" />
 
-            <com.godohosting.ehgus83133.sugangapp.AutoResizeTextView
+            <com.github.jivimberg.library.AutoResizeTextView
                 android:id="@+id/friday9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

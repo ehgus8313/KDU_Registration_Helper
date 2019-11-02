@@ -1,9 +1,8 @@
 package com.godohosting.ehgus83133.sugangapp;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.v4.content.ContextCompat;
-import android.widget.TextView;
+
+import com.github.jivimberg.library.AutoResizeTextView;
 
 public class Schedule {
 
@@ -759,11 +758,11 @@ public class Schedule {
                 // 아래 소스 지우고, 이제 위에서 새로 생성한 maxString을 넣어서 크기를 맞춘다.
                 friday[i].setText(maxString);
             }
-            monday[i].resizeText();
-            tuesday[i].resizeText();
-            wednesday[i].resizeText();
-            thursday[i].resizeText();
-            friday[i].resizeText();
+//            monday[i].resizeText();
+//            tuesday[i].resizeText();
+//            wednesday[i].resizeText();
+//            thursday[i].resizeText();
+//            friday[i].resizeText();
         }
     }
 }

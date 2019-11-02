@@ -66,7 +66,9 @@ private AlertDialog dialog;
                                 if (success == true) {
                                     Toast.makeText(LoginActivity.this, userID + "님 접속하셨습니다.", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    String admin = jsonResponse.getString("admin");
                                     intent.putExtra("userID", userID);
+                                    intent.putExtra("admin", admin);
                                     LoginActivity.this.startActivity(intent);
                                     finish();
                                 } else if (success == false) {

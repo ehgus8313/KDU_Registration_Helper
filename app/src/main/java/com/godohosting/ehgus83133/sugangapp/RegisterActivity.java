@@ -1,11 +1,8 @@
 package com.godohosting.ehgus83133.sugangapp;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.provider.MediaStore;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,7 +10,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -22,7 +18,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class RegisterActivity extends AppCompatActivity {
     private AlertDialog dialog;
@@ -34,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String userGender;
     private String userMajor;
     private Spinner spinner;
+    private String admin = "N";
     private ArrayAdapter adapter;
 
 
@@ -158,8 +154,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     boolean success = jsonResponse.getBoolean("success");
                                     if (success) {
                                         Toast.makeText(RegisterActivity.this, "회원가입에 성공했습니다.", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                        RegisterActivity.this.startActivity(intent);
+                                        finish();
                                     }
                                     else {
                                         AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
@@ -176,7 +171,7 @@ public class RegisterActivity extends AppCompatActivity {
                         };
 
 
-                        RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName, userEmail, userGender, userMajor, responseListener);
+                        RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName, userEmail, userGender, userMajor, admin, responseListener);
                         RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                         queue.add(registerRequest);
                     }

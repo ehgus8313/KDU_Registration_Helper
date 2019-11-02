@@ -3,10 +3,10 @@ package com.godohosting.ehgus83133.sugangapp;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView noticeListView;
     private NoticeListAdapter adapter;
     private List<Notice> noticeList;
-    public static String userID;
+    public static String userID,admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         userID = getIntent().getStringExtra("userID");
+        admin = getIntent().getStringExtra("admin");
 
         noticeListView = (ListView) findViewById(R.id.noticeListView);
         noticeList = new ArrayList<Notice>();
@@ -48,7 +49,14 @@ public class MainActivity extends AppCompatActivity {
         final Button courseButton = (Button) findViewById(R.id.courseButton);
         final Button statisticsButton = (Button) findViewById(R.id.statisticsButton);
         final Button scheduleButton = (Button) findViewById(R.id.scheduleButton);
+        final Button manageButton = (Button) findViewById(R.id.manageButton);
         final LinearLayout notice = (LinearLayout) findViewById(R.id.notice);
+
+        if (admin.equals("Y")) {
+            manageButton.setVisibility(View.VISIBLE);
+        }else {
+            manageButton.setVisibility(View.GONE);
+        }
 
         courseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 courseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                manageButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment, new CourseFragment());
@@ -72,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 courseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                manageButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment, new StatisticsFragment());
@@ -87,9 +97,26 @@ public class MainActivity extends AppCompatActivity {
                 courseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                manageButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment, new ScheduleFragment());
+                fragmentTransaction.commit();
+
+            }
+        });
+
+        manageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                notice.setVisibility(View.GONE);
+                courseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                manageButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new ManageFragment());
                 fragmentTransaction.commit();
 
             }
