@@ -11,7 +11,7 @@ import java.util.Map;
  */
 
 public class AddRequest extends StringRequest {
-    final static private String URL = "http://ehgus83133.godohosting.com/CourseAdd.php";
+    final static private String URL = "http://ehgus83133.godohosting.com/KDU_Helper/CourseAdd.php";
     private Map<String, String> parameters;
 
     public AddRequest(String userID, String courseID, Response.Listener<String> listener) {

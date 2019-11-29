@@ -2,7 +2,6 @@
 package com.godohosting.ehgus83133.sugangapp;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -19,7 +18,6 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -166,7 +164,7 @@ public class StatisticsFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/ByMale.php";
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/ByMale.php";
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -252,7 +250,7 @@ public class StatisticsFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/ByFemale.php";
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/ByFemale.php";
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -338,7 +336,7 @@ public class StatisticsFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/ByMyMajor.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/ByMyMajor.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -424,7 +422,7 @@ public class StatisticsFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/ByMajor.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/ByMajor.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -510,7 +508,7 @@ public class StatisticsFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/ByRefinement.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/ByRefinement.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -596,7 +594,7 @@ public class StatisticsFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/ByEntire.php";
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/ByEntire.php";
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -682,7 +680,7 @@ public class StatisticsFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/StatisticsCourseList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/StatisticsCourseList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }

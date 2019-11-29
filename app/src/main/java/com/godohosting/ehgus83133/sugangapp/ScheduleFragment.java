@@ -163,7 +163,7 @@ public class ScheduleFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/ScheduleList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/ScheduleList.php?userID=" + URLEncoder.encode(MainActivity.userID, "UTF-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }

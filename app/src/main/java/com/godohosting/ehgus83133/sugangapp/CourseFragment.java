@@ -1,6 +1,5 @@
 package com.godohosting.ehgus83133.sugangapp;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,7 +22,6 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -217,7 +215,7 @@ public class CourseFragment extends Fragment {
         @Override
         protected  void onPreExecute() {
             try {
-                target = "http://ehgus83133.godohosting.com/CourseList.php?courseUniversity=" + URLEncoder.encode(courseUniversity, "UTF-8") +
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/CourseList.php?courseUniversity=" + URLEncoder.encode(courseUniversity, "UTF-8") +
                         "&courseYear=" + URLEncoder.encode(yearSpinner.getSelectedItem().toString().substring(0, 4), "UTF-8") + "&courseTerm=" + URLEncoder.encode(termSpinner.getSelectedItem().toString(), "UTF-8") +
                         "&courseArea=" + URLEncoder.encode(areaSpinner.getSelectedItem().toString(), "UTF-8") + "&courseMajor=" + URLEncoder.encode(majorSpinner.getSelectedItem().toString(), "UTF-8");
 

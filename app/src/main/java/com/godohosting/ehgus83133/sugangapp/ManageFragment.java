@@ -1,27 +1,17 @@
 package com.godohosting.ehgus83133.sugangapp;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,7 +21,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,7 +115,7 @@ public class ManageFragment extends Fragment {
 
                 // show dialog
                 asyncDialog.show();
-                target = "http://ehgus83133.godohosting.com/List.php";
+                target = "http://ehgus83133.godohosting.com/KDU_Helper/List.php";
 
             } catch (Exception e) {
                 e.printStackTrace();

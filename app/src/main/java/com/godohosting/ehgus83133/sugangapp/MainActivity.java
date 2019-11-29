@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected  void onPreExecute() {
-            target = "http://ehgus83133.godohosting.com/NoticeList.php";
+            target = "http://ehgus83133.godohosting.com/KDU_Helper/NoticeList.php";
         }
 
         @Override

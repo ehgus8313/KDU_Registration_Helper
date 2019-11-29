@@ -11,7 +11,7 @@ import java.util.Map;
  */
 
 public class RegisterRequest extends StringRequest {
-    final static private String URL = "http://ehgus83133.godohosting.com/Register.php";
+    final static private String URL = "http://ehgus83133.godohosting.com/KDU_Helper/Register.php";
     private Map<String, String> parameters;
 
     public RegisterRequest(String userID, String userPassword, String userName, String userEmail, String userGender, String userMajor, String admin, Response.Listener<String> listener) {

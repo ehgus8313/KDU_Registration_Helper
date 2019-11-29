@@ -11,7 +11,7 @@ import java.util.Map;
  */
 
 public class DeleteRequest extends StringRequest {
-    final static private String URL = "http://ehgus83133.godohosting.com/ScheduleDelete.php";
+    final static private String URL = "http://ehgus83133.godohosting.com/KDU_Helper/ScheduleDelete.php";
     private Map<String, String> parameters;
 
     public DeleteRequest(String userID, String courseID, Response.Listener<String> listener) {
